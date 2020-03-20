@@ -10,12 +10,15 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-
         <module>orm</module>
         <module>ioc</module>
         <module>aop</module>
         <module>web</module>
     </modules>
+    <!-- 全局添加依赖
+  -->
+
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,9 +33,26 @@
         <logback.version>1.2.3</logback.version>
         <slf4j.version>1.7.30</slf4j.version>
         <druid.version>1.1.21</druid.version>
+<fastjson.version>1.2.66</fastjson.version>
     </properties>
 
     <dependencies>
+<!--fastJSON依赖-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <!--Spring WebMvc 会及联引入spring web模块-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+
+
         <!-- Spring上下文模块,级联引入了aop、beans、core、expression-->
         <dependency>
             <groupId>org.springframework</groupId>
