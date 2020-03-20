@@ -8,8 +8,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ioc" />
-        <module name="orm" />
         <module name="web" />
+        <module name="orm" />
         <module name="aop" />
       </profile>
     </annotationProcessing>
@@ -17,6 +17,8 @@
       <module name="aop" target="1.11" />
       <module name="ioc" target="1.11" />
       <module name="orm" target="1.11" />
+      <module name="pre" target="1.11" />
+      <module name="rea" target="1.11" />
       <module name="Spring_Study" target="1.11" />
       <module name="web" target="1.11" />
     </bytecodeTargetLevel>
