@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ioc" />
+        <module name="webx" />
         <module name="web" />
         <module name="orm" />
         <module name="aop" />
@@ -21,6 +22,7 @@
       <module name="rea" target="1.11" />
       <module name="Spring_Study" target="1.11" />
       <module name="web" target="1.11" />
+      <module name="webx" target="1.11" />
     </bytecodeTargetLevel>
   </component>
 </project>
