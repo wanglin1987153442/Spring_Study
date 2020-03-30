@@ -1,20 +1,29 @@
 package com.Spring_Study.webx.entity;
 
+import com.alibaba.fastjson.JSONArray;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author wl
- * @ClassNamebook
- * @Description TODO
- * @Date 2020/3/24
- * @Version 1.0
- */
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Book {
-    private  double price;
-    private  String name;
+
+  private String skuId;
+  private String type;
+  private String description;
+  private String title;
+  private String url;
+  private String cover;
+  private long bookSize;
+  private String name;
+  private String price;
+
+
+
 }

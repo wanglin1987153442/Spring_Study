@@ -4,6 +4,7 @@ package com.Spring_Study.web.config;
 import com.Spring_Study.web.dao.ForumDao;
 import com.Spring_Study.web.dao.impl.ForumDaoImpl;
 import com.alibaba.druid.pool.DruidDataSource;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -36,17 +37,17 @@ public class JDBCConfig {
         return new JdbcTemplate(druidDataSource);
     }
 
-    @Bean
-    public ForumDao forumDao(JdbcTemplate jdbcTemplate){
-        return new ForumDaoImpl(jdbcTemplate);
-    }
-
-
-//    public static void main(String[] args) {
-//        AnnotationConfigApplicationContext aca = new AnnotationConfigApplicationContext(JDBCConfig.class);
-//        DruidDataSource druidDataSource = (DruidDataSource) aca.getBean("dataSource");
-//        System.out.println(druidDataSource);
-//        JdbcTemplate jdbcTemplate = (JdbcTemplate) aca.getBean("jdbcTemplate");
-//        System.out.println(jdbcTemplate);
+//    @Bean
+//    public ForumDao forumDao(JdbcTemplate jdbcTemplate){
+//        return new ForumDaoImpl(jdbcTemplate);
 //    }
+
+
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext aca = new AnnotationConfigApplicationContext(JDBCConfig.class);
+        DruidDataSource druidDataSource = (DruidDataSource) aca.getBean("dataSource");
+        System.out.println(druidDataSource);
+        JdbcTemplate jdbcTemplate = (JdbcTemplate) aca.getBean("jdbcTemplate");
+        System.out.println(jdbcTemplate);
+    }
 }
