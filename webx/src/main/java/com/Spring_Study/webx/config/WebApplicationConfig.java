@@ -1,6 +1,7 @@
 package com.Spring_Study.webx.config;
 
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -15,6 +16,7 @@ import javax.servlet.ServletRegistration;
  * @Date 2020/3/24
  * @Version 1.0
  */
+@Configuration
 public class WebApplicationConfig implements WebApplicationInitializer {
     @Override
     public void onStartup(javax.servlet.ServletContext servletContext) throws ServletException {

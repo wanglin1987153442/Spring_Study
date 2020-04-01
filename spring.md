@@ -218,3 +218,169 @@ dao层、service层、controller层
 
 3： 测试类引用时 @ContextConfigration(class={xxxx.class }) 
 
+
+事务处理三个步骤：
+
+数据库设置不自动提交
+
+开启事务
+
+数据库commit 设置为true
+
+exception 放（rollback（））
+
+joda Time 库 时间处理 
+
+java jsoup 爬虫
+
+HTTp client  库 做请求工具   
+
+json Jackson  Fastjson   
+
+
+
+3.31
+typora
+
+数据持久化技术
+
+jdbc  
+
+JPA规范 
+
+java Persistance API java持久化应用程序化接口
+
+![](https://wl-picture.oss-cn-hangzhou.aliyuncs.com/img/Snipaste_2020-04-01_20-45-52.jpg)
+
+![](https://wl-picture.oss-cn-hangzhou.aliyuncs.com/img/Snipaste_2020-04-01_20-45-52.jpg)
+
+
+
+2020.41
+
+完成工作 webxml  web-annotation  mybatis-xml  Mybatis-anotion  jdbc xml  jdbc-annotation 版 
+详情看文档注释 
+总结：
+
+总结：
+
+xml配置所需要
+
+统一配置datasource   jdbc properties 不可或缺
+
+```
+ <!--扫描含有注解的包-->
+    <context:component-scan base-package="com.Spring_Study.mybatis.service.impl"/>
+     <!-- 启动上下文的注解配置 -->
+    <context:annotation-config/>
+    <!-- 启动AOP支持 -->
+    <aop:aspectj-autoproxy/>
+    
+    
+```
+
+jdbcTemplate
+
+![](https://wl-picture.oss-cn-hangzhou.aliyuncs.com/img/Snipaste_2020-04-01_20-48-19.jpg)
+
+头注解区别测试类：![](https://wl-picture.oss-cn-hangzhou.aliyuncs.com/img/Snipaste_2020-04-01_20-48-29.jpg)
+
+
+
+web-xml
+
+配置仍旧是jdbc template
+
+web 文件 执行核心文件在 
+
+![](https://wl-picture.oss-cn-hangzhou.aliyuncs.com/img/Snipaste_2020-04-01_20-48-38.jpg)
+
+注意：servlet的配置 设置优先级 以及资源的目录设置
+
+![](https://wl-picture.oss-cn-hangzhou.aliyuncs.com/img/Snipaste_2020-04-01_20-48-44.jpg)
+
+指定资源位置 不然直接加载WEB-INF 
+
+视图对象 后端Thymleaf
+
+mybatis版本配置：
+
+```
+    <!-- 在springIOC容器中创建mybatis核心类sqlSessionFactor -->
+    <bean id="sqlSessionFactory"
+          class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 需要 dataSource -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 引入mybatis配置文件 -->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--指定实体类所在包-->
+        <property name="typeAliasesPackage" value="com.Spring_Study.mybatis.entity"/>
+        <!-- 自动扫描mapping.xml文件 -->
+        <property name="mapperLocations" value="classpath:mappers/*.xml"/>
+    </bean>
+
+    <!-- 通过Mapper扫描器MapperScannerConfigurer，批量将 basePackage指定包中的接口全部生成Mapper动态代理对象 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.Spring_Study.mybatis.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory">
+        </property>
+    </bean>
+
+    <!--事务管理器配置 -->
+    <bean id="manager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+          p:dataSource-ref="dataSource"/>
+```
+
+
+
+mybatis-config就是代码改掉  改成注解版
+
+![](https://wl-picture.oss-cn-hangzhou.aliyuncs.com/img/Snipaste_2020-04-01_20-48-59.jpg)
+
+mybatis 注意官网 ：<https://mybatis.org/mybatis-3/zh/index.html>
+
+
+
+
+
+
+
+![](https://wl-picture.oss-cn-hangzhou.aliyuncs.com/img/Snipaste_2020-04-01_20-49-08.jpg)
+
+
+
+![](https://wl-picture.oss-cn-hangzhou.aliyuncs.com/img/Snipaste_2020-04-01_20-49-13.jpg)
+
+注解：
+
+@Configuration 等同于spring的XML配置文件；使用Java代码可以检查类型安全。
+
+@EnableAutoConfiguration 自动配置。
+
+@ComponentScan 组件扫描注解用
+
+@Autowired自动导入。  @Resource
+
+@PathVariable获取参数。
+
+@Value注解 取出properties文件中的配置值。@Value(“${wx_appid}”)
+
+@Controller, @Service, @Repository,@Component
+
+@RequestBody
+
+[@RequestParam作用是提取和解析请求中的参数
+
+### @PathVariable，@RequestHeader，@RequestParam, @RequestBody
+
+@Target：定义注解的作用目标:
+
+[.@RequestMapping](mailto:23.@RequestMapping)处理映射请求的注解
+
+# SQL
+
+@insert @select @delete @uodate
+
+```
+@Options(useGeneratedKeys = true, keyProperty = "studentId")
+``````

@@ -9,6 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="web" />
         <module name="ioc" />
+        <module name="hibernate-xml" />
+        <module name="mybatis-annotation" />
         <module name="aop" />
         <module name="webx" />
         <module name="mybatis-xml" />
@@ -17,7 +19,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="aop" target="1.11" />
+      <module name="hibernate-xml" target="1.11" />
       <module name="ioc" target="1.11" />
+      <module name="mybatis-annotation" target="1.11" />
       <module name="mybatis-xml" target="1.11" />
       <module name="mybatis_xml" target="1.11" />
       <module name="orm" target="1.11" />
